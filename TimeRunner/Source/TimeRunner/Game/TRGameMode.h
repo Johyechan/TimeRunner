@@ -14,4 +14,6 @@ class TIMERUNNER_API ATRGameMode : public AGameModeBase
 {
 	GENERATED_BODY()
 	
+public:
+	ATRGameMode();
 };

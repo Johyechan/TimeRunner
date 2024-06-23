@@ -10,7 +10,7 @@ public class TimeRunner : ModuleRules
 
 		PublicIncludePaths.AddRange(new string[] { "TimeRunner" });
 
-		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore" });
+		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "EnhancedInput" });
 
 		PrivateDependencyModuleNames.AddRange(new string[] {  });
 
