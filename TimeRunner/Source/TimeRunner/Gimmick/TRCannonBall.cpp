@@ -32,6 +32,8 @@ ATRCannonBall::ATRCannonBall()
 	CannonBallMovement->ProjectileGravityScale = 0;
 	CannonBallMovement->bRotationFollowsVelocity = true;
 	CannonBallMovement->bShouldBounce = true;
+
+	LifeTime = 2.0f;
 }
 
 // Called when the game starts or when spawned
@@ -39,6 +41,7 @@ void ATRCannonBall::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	SetLifeSpan(LifeTime);
 }
 
 // Called every frame

@@ -29,7 +29,6 @@ void ATRFloor::BeginPlay()
 	
 	StartLocation = GetActorLocation();
 	TargetLocation = StartLocation;
-	TargetLocation.Z += Amplitude;
 }
 
 // Called every frame
@@ -37,25 +36,41 @@ void ATRFloor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	if (IsLift)
+	SetCurrentLocation(IsX, IsY, IsZ);
+}
+
+void ATRFloor::SetCurrentLocation(bool X, bool Y, bool Z)
+{
+	FVector CurrentLocation = GetActorLocation();
+
+	if (IsZ)
 	{
 		if (Amplitude != 0.0f && Frequency != 0.0f)
 		{
-			FVector CurrentLocation = GetActorLocation();
-			float DeltaHeight = FMath::Sin(GetWorld()->TimeSeconds * Frequency) * Amplitude;
-			CurrentLocation.Z = StartLocation.Z + DeltaHeight;
-			SetActorLocation(CurrentLocation);
+			CurrentLocation.Z = StartLocation.Z + DeltaMove();
 		}
 	}
-	else
+	else if (IsX)
 	{
 		if (Amplitude != 0.0f && Frequency != 0.0f)
 		{
-			FVector CurrentLocation = GetActorLocation();
-			float DeltaHeight = FMath::Sin(GetWorld()->TimeSeconds * Frequency) * Amplitude;
-			CurrentLocation.X = StartLocation.X + DeltaHeight;
-			SetActorLocation(CurrentLocation);
+			CurrentLocation.X = StartLocation.X + DeltaMove();
 		}
 	}
+	else if (IsY)
+	{
+		if (Amplitude != 0.0f && Frequency != 0.0f)
+		{
+			CurrentLocation.Y = StartLocation.Y + DeltaMove();
+		}
+	}
+
+	SetActorLocation(CurrentLocation);
+}
+
+float ATRFloor::DeltaMove()
+{
+	float DeltaMoveValue = FMath::Sin(GetWorld()->TimeSeconds * Frequency) * Amplitude;
+	return DeltaMoveValue;
 }
 

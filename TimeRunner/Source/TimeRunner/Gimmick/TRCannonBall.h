@@ -34,4 +34,5 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 	UStaticMeshComponent* CannonBallMesh;
 
+	float LifeTime;
 };

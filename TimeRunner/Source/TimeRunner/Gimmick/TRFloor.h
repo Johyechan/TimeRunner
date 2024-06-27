@@ -34,8 +34,16 @@ protected:
 	float Frequency = 1.0f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Floor")
-	bool IsLift;
+	bool IsX;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Floor")
+	bool IsY;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Floor")
+	bool IsZ;
 
 	UPROPERTY(VisibleAnywhere)
 	UStaticMeshComponent* TRFloorMesh;
+
+	void SetCurrentLocation(bool X, bool Y, bool Z);
+
+	float DeltaMove();
 };
