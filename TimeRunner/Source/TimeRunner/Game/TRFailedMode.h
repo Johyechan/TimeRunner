@@ -4,19 +4,24 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
-#include "TRGameMode.generated.h"
+#include "UI/TRFailedWidget.h"
+#include "TRFailedMode.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class TIMERUNNER_API ATRGameMode : public AGameModeBase
+class TIMERUNNER_API ATRFailedMode : public AGameModeBase
 {
 	GENERATED_BODY()
 	
 public:
-	ATRGameMode();
+	ATRFailedMode();
 
 protected:
 	virtual void BeginPlay() override;
+
+private:
+	TSubclassOf<class UUserWidget> FailedLevelWidgetClass;
+	class UTRFailedWidget* FailedLevelWidget;
 };

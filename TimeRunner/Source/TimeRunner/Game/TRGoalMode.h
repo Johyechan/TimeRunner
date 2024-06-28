@@ -4,19 +4,24 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
-#include "TRGameMode.generated.h"
+#include "UI/TRGoalWidget.h"
+#include "TRGoalMode.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class TIMERUNNER_API ATRGameMode : public AGameModeBase
+class TIMERUNNER_API ATRGoalMode : public AGameModeBase
 {
 	GENERATED_BODY()
 	
 public:
-	ATRGameMode();
+	ATRGoalMode();
 
 protected:
 	virtual void BeginPlay() override;
+
+private:
+	TSubclassOf<class UUserWidget> GoalLevelWidgetClass;
+	class UTRGoalWidget* GoalLevelWidget;
 };
