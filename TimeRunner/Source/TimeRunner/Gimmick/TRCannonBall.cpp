@@ -23,6 +23,7 @@ ATRCannonBall::ATRCannonBall()
 	if (CannonBallMeshRef.Object)
 	{
 		CannonBallMesh->SetStaticMesh(CannonBallMeshRef.Object);
+		CannonBallMesh->SetWorldScale3D(FVector(2.5f));
 	}
 
 	CannonBallMovement = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("CannonBallMovement"));
