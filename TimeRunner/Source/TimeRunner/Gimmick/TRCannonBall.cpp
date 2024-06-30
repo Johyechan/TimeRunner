@@ -28,7 +28,7 @@ ATRCannonBall::ATRCannonBall()
 	CannonBallMovement = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("CannonBallMovement"));
 	CannonBallMovement->UpdatedComponent = CollisionComponent;
 	CannonBallMovement->InitialSpeed = 3000.0f;
-	CannonBallMovement->MaxSpeed = 3000.0f;
+	CannonBallMovement->MaxSpeed = 2000.0f;
 	CannonBallMovement->ProjectileGravityScale = 0;
 	CannonBallMovement->bRotationFollowsVelocity = true;
 	CannonBallMovement->bShouldBounce = true;
